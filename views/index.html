@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" ng-app="ToDoApp">
+  <head>
+    <meta charset="utf-8">
+    <title>To Do Challenge</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script src="../public/scripts/app.js"></script>
+    <script src="../public/scripts/toDoAppController.js"></script>
+  </head>
+
+  <body ng-controller='ToDoAppController as toDoCtrl'>
+    <h1>To Do</h1>
+    <form>
+      <input type="text" placeholder="Add a task" ng-model="toDoCtrl.listItem">
+      <button class="btn" ng-click="toDoCtrl.addItem()">Add to list</button>
+    </form>
+    <ul ng-repeat="item in toDoCtrl.fullList">
+      <li>{{item}}</li>
+    </li>
+  </body>
+</html>
