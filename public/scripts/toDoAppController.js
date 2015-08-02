@@ -1,9 +1,10 @@
 toDoApp.controller('ToDoAppController', [function() {
 
   var self = this;
+  self.fullList = [];
 
   self.addItem = function() {
-    self.fullList = ['finish to do challenge', 'eat foods'];
+    self.fullList.push(self.listItem)
   };
 
 }]);
