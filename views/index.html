@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>To Do List</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="styles/mystyles.css"
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -13,12 +14,20 @@
 
   <body ng-controller='ToDoAppController as toDoCtrl'>
     <h1>To Do</h1>
-    <form>
-      <input type="text" placeholder="Add a task" ng-model="toDoCtrl.listItem">
-      <button class="btn" ng-click="toDoCtrl.addItem()">Add to list</button>
-    </form>
-    <ul ng-repeat="item in toDoCtrl.fullList">
-      <li>{{item}}</li>
-    </li>
+    <h2>You have {{toDoCtrl.toComplete}} tasks to complete</h2>
+    <h2>You have completed {{toDoCtrl.completed}} tasks</h2>
+    <div class="form-group">
+      <form>
+        <input type="text" placeholder="Add a task" ng-model="toDoCtrl.listItem">
+        <button class="btn" id="add" ng-click="toDoCtrl.addItem()">Add to list</button>
+        <button class="btn" id="clear" ng-click="toDoCtrl.clearCompleted()">Clear completed tasks</button>
+      </form>
+      <ul>
+        <li ng-repeat="task in toDoCtrl.fullList">
+        <input id="done" type="checkbox" ng-model="task.taskComplete">
+        <span id='text' class="completed-{{task.taskComplete}}">{{task.text}}</span>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
